@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Phoenix Report</title>
+</head>
+
+<body>
+    <div class="contentWrapper">
+        <div class="content">
+            <img src="assets/logo-text.svg" alt="" class="logoImage">
+            <h1>Report of contributions done during Google Summer of Code 2019</h1>
+            <div class="contentSection">
+                <h2>Links</h2>
+                <ul>
+                    <li>Github repository for the project: <a href="https://github.com/HSF/phoenix">https://github.com/HSF/phoenix</a></li>
+                    <li>My contributions to the project: <a href="https://github.com/HSF/phoenix/commits?author=emiliocortina">https://github.com/HSF/phoenix/commits?author=emiliocortina</a>
+                    </li>
+                    <li>Deployed application: <a href="https://hepsoftwarefoundation.org/phoenix/">https://hepsoftwarefoundation.org/phoenix/</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="contentSection">
+                <h2>Initial project</h2>
+                <p>Here are some screenshots of the project before Google Summer of Code started:</p>
+                <img src="assets/phoenix-old-1.png" alt="">
+                <p>The application was able to load geometries from OBJ files, event data specified in JSON format and build programatically some geometries</p>
+                <img src="assets/phoenix-old-3.png" alt="">
+            </div>
+
+            <div class="contentSection">
+                <h2>Contributions done</h2>
+                <p>During Google Summer of Code I made several contributions to the project, the most important ones will be summarized here:
+                </p>
+
+                <h3>Angular port</h3>
+                <p>The initial project was a web application consisting of different HTML documents (one for every section) and a single JavaScript file with the whole functionality in it.</p>
+                <p>For this reason, the first thing we decided to do was to 'rebuild' the application on a modern front-end framework (in this case Angular) so we could implement a modular architecture (as represented below).</p>
+                <img src="assets/architecture.svg" alt="">
+                <p>Finally we deployed the application online to have a website where it could be accessed (<a href="https://hepsoftwarefoundation.org/phoenix/">https://hepsoftwarefoundation.org/phoenix/</a>) and added test coverage to the project.
+                </p>
+
+                <h3>More sections</h3>
+                <p>Once the Angular port was done, it was very easy to create new sections that displayed different data. The first additional section we created was a 'Playground' in which users could have a blank scene and load different data and geometries.</p>
+                <img src="assets/phoenix-sections.png" alt="">
+                <p>After the Playground section, we also added a Playground VR section that followed the same principles as the first one but also offering virtual reality capabilities on devices supporting WebVR.</p>
+
+                <h3>Event data format</h3>
+                <p>We finished the specification of the format used to represent the event data, and adapted the application to support it. The format is written in JSON and is able to represent multiple events, each containing different collections of physics
+                    objects.
+                </p>
+                <p>More information about this format is available in the project documentation at: <a href="https://github.com/HSF/phoenix/blob/master/src/assets/docs/users.md">https://github.com/HSF/phoenix/blob/master/src/assets/docs/users.md</a>
+                </p>
+
+                <h3>Import and export options</h3>
+                <p>After finishing documenting the event data format we implemented the loader for the files written in that format. We also added loading options for external OBJ and GLTF files.
+                </p>
+                <img src="assets/import.png" alt="">
+                <p>Finally, an option to save and load the configuration of the scene was implemented.</p>
+
+                <h3>More controls</h3>
+                <p>More options for manipulating objects were added to the controls menu. These include changing color of collections and geometries and object cuts.
+                </p>
+                <img src="assets/controls.png" alt="">
+                <p>Object cuts let users filter individual objects based on some of their parameters.</p>
+
+                <h3>Options bar</h3>
+                <p>As the application got more complex, we eventually needed an alternative to the controls menu for the new options we wanted to implement. So an options bar with the following buttons was added (from left to right):
+                </p>
+                <img src="assets/menu.png" alt="">
+                <ul>
+                    <li>1-4: Preset views, allow to change the camera to fixed locations.</li>
+                    <li>5: Overlay view, presents an additional display with an alternate ortographic camera.<img class="smallImage" src="assets/overlay.png" alt=""></li>
+                    <li>6: Object selection, enabling it will show a panel where information about the objects the users click on will be displayed.
+                        <img class="smallImage" src="assets/selection.png" alt="">
+                    </li>
+                    <li>7: Collection information, displays a panel to show information about all the objects in a collection.
+                        <img class="smallImage" src="assets/info.png" alt="">
+                    </li>
+                    <li>8: Import and export options, showed above.</li>
+                </ul>
+            </div>
+
+            <div class="contentSection">
+                <h2>TODO</h2>
+                <ul>
+                    <li>Improve test coverage.</li>
+                    <li>Add support for more compound objects.</li>
+                    <li>Add support for more physics objects.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© <em>2019</em> Emilio Cortina Labra</p>
+        <p>
+            <a href="https://emiliocortina.ml">https://emiliocortina.ml</a></p>
+    </footer>
+</body>
+
+</html>
